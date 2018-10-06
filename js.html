@@ -1,0 +1,80 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN">
+<html>
+<head>
+  <title>Home</title>
+  <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script> -->
+
+
+
+</head>
+
+<body>
+
+  Start:
+  <input id="start" type="text">
+  <br>
+
+  End:
+  <input id="end" type="text">
+  <br>
+
+  Result:
+  <p id="result">Result will show here</p>
+
+  Start is <p id="start_output"></p>and end is <p id="end_output"></p>.
+  <br><br>
+
+  <button type="button" onclick="compute()">Addition!</button><br>
+  <button type="button" onclick="change()">Change!</button><br>
+
+  <button type="button" onclick="showtopic()">Show Topic!</button><br>
+  <button type="button" id="try">TRY!</button><br>
+  <br><br>
+  <button type="button" onclick="add()">Add start to end!</button>
+
+
+
+
+
+  <script>
+
+  var turnaround = 0;
+
+  function compute() {
+    var a = prompt("A=");
+    var b = prompt("B=");
+    var aplusb = parseInt(a) + parseInt(b);
+    alert(aplusb);
+  }
+
+  function change() {
+    document.getElementById("result").innerHTML = "Result saying hello.";
+  }
+
+  function showtopic() {
+    var topiclocation = document.getElementById("result");
+    topiclocation.innerHTML = "Show topic!";
+    topiclocation.style.fontSize = "25px";
+    topiclocation.style.color = "red";
+  }
+
+  function add() {
+    var start = document.getElementById("start").value;
+    var end = document.getElementById("end").value;
+    document.getElementById("start_output").innerHTML = start;
+    document.getElementById("end_output").innerHTML = end;
+
+    console.log("Start: " + start);
+  }
+//THIS IS HOW YOU DO NOT NEED TO WRITE THE ONCLICK INLINE
+  document.getElementById("try").onclick = function() {
+      alert("YOU CLICKED ME!");
+  }
+
+
+  </script>
+
+
+
+</body>
+</html>
