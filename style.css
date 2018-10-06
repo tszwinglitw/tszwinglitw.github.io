@@ -13,3 +13,11 @@ h1 {
 .monospace {
   font-family: monospace;
 }
+
+
+table.greyGridTable {
+  border: 2px solid #000000;
+  width: 100%;
+  text-align: center;
+  border-collapse:collapse;
+}
