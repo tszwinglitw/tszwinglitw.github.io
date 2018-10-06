@@ -1,0 +1,15 @@
+h1 {
+  background-color: #00BCD4;
+  text-align: -webkit-center;
+  color: white;
+  font-family: monospace;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  border-color: #FF9800;
+  border-width: thick;
+  border-style: solid;
+}
+
+.monospace {
+  font-family: monospace;
+}
