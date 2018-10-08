@@ -4,33 +4,27 @@
   <title>Home</title>
   <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script> -->
 
-
-
 </head>
 
 <body>
 
   Start:
-  <input id="start" type="text">
+  <input class="inputbox" id="input_start" type="text">
   <br>
 
   End:
-  <input id="end" type="text">
-  <br>
-
-  Result:
-  <p id="result">Result will show here</p>
-
-  Start is <p id="start_output"></p>and end is <p id="end_output"></p>.
+  <input class="inputbox" id="input_end" type="text">
   <br><br>
 
-  <button type="button" onclick="compute()">Addition!</button><br>
-  <button type="button" onclick="change()">Change!</button><br>
+  Resultwise, start is <span id="start_output">NOT HERE YET</span> and end is <span id="end_output">NOT HERE YET</span>.
+  <br>
+  And then, the conclusion is <span id="result"> NOT HERE YET</span>.
+  <br><br>
 
-  <button type="button" onclick="showtopic()">Show Topic!</button><br>
+
   <button type="button" id="try">TRY!</button><br>
   <br><br>
-  <button type="button" onclick="add()">Add start to end!</button>
+
 
 
 
@@ -38,39 +32,54 @@
 
   <script>
 
-  var turnaround = 0;
 
-  function compute() {
-    var a = prompt("A=");
-    var b = prompt("B=");
-    var aplusb = parseInt(a) + parseInt(b);
-    alert(aplusb);
-  }
-
-  function change() {
-    document.getElementById("result").innerHTML = "Result saying hello.";
-  }
-
-  function showtopic() {
-    var topiclocation = document.getElementById("result");
-    topiclocation.innerHTML = "Show topic!";
-    topiclocation.style.fontSize = "25px";
-    topiclocation.style.color = "red";
-  }
-
-  function add() {
-    var start = document.getElementById("start").value;
-    var end = document.getElementById("end").value;
-    document.getElementById("start_output").innerHTML = start;
-    document.getElementById("end_output").innerHTML = end;
-
-    console.log("Start: " + start);
-  }
 //THIS IS HOW YOU DO NOT NEED TO WRITE THE ONCLICK INLINE
-  document.getElementById("try").onclick = function() {
-      alert("YOU CLICKED ME!");
+
+  function consum(end_value) {
+      var n = end_value;
+      //var c = parseInt(a) + parseInt(b);
+      var n = parseInt(n)*(parseInt(n)+1)/2;
+      //alert("n in Function: " + n);
+      end_value = n;
+      //alert("end_value in Function: " + end_value);
+      return n;
   }
 
+  document.getElementById("try").onclick = function() {
+      var start_value = parseInt(document.getElementById("input_start").value);
+      var end_value = parseInt(document.getElementById("input_end").value);
+      document.getElementById("start_output").innerHTML = start_value;
+      document.getElementById("end_output").innerHTML = end_value;
+      var big_sum = consum(end_value);
+      var small_sum = consum(start_value);
+      var result = big_sum - small_sum + start_value;
+      //alert("Result: "+result)
+      document.getElementById("result").innerHTML = result;
+  }
+
+
+
+/*
+Number is even number
+Result =
+
+say i input 23 to 83
+
+then i have to calc 1-83 first -> bigger
+then i have to calc 1-23 -> smaller
+
+result = bigger - smaller
+
+i have to write a module with (a, b)
+
+y= consum
+z = consum
+x = y-z
+
+The formula n(n+1)/2
+
+Then
+*/
 
   </script>
 
