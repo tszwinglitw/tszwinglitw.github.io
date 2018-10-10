@@ -16,9 +16,7 @@
   <input class="inputbox" id="input_end" type="text">
   <br><br>
 
-  Resultwise, start is <span id="start_output">NOT HERE YET</span> and end is <span id="end_output">NOT HERE YET</span>.
-  <br>
-  And then, the conclusion is <span id="result"> NOT HERE YET</span>.
+  Result: <span id="result"> </span>
   <br><br>
 
 
@@ -35,26 +33,73 @@
 
 //THIS IS HOW YOU DO NOT NEED TO WRITE THE ONCLICK INLINE
 
-  function consum(end_value) {
-      var n = end_value;
+  function consum(value) {
+      var n = value;
       //var c = parseInt(a) + parseInt(b);
       var n = parseInt(n)*(parseInt(n)+1)/2;
       //alert("n in Function: " + n);
-      end_value = n;
+      value = n;
       //alert("end_value in Function: " + end_value);
       return n;
   }
 
+
+  // Execute a function when the user releases a key on the keyboard
+  document.getElementById("input_end").addEventListener("keyup", function(event) {
+    event.preventDefault();
+    if (event.keyCode === 13) {
+      document.getElementById("try").click();
+    }
+  });
+
+  document.getElementById("input_start").addEventListener("keyup", function(event) {
+    // Cancel the default action, if needed
+    event.preventDefault();
+    // Number 13 is the "Enter" key on the keyboard
+    if (event.keyCode === 13) {
+      // Trigger the button element with a click
+      document.getElementById("try").click();
+    }
+  });
+
   document.getElementById("try").onclick = function() {
-      var start_value = parseInt(document.getElementById("input_start").value);
-      var end_value = parseInt(document.getElementById("input_end").value);
-      document.getElementById("start_output").innerHTML = start_value;
-      document.getElementById("end_output").innerHTML = end_value;
+      var start_value = parseFloat(document.getElementById("input_start").value);
+      var end_value = parseFloat(document.getElementById("input_end").value);
+
+      var checkstart = start_value % 1;
+      console.log(checkstart);
+      var checkend = end_value % 1;
+      console.log(checkend);
+
+      if (checkstart == 0 && checkend == 0 && start_value > 0 && end_value > 0 && end_value >= start_value) {
+        var big_sum = consum(end_value);
+        var small_sum = consum(start_value - 1);
+        var result = big_sum - small_sum;
+        //alert("Result: "+result)
+        document.getElementById("result").innerHTML = result;
+      } else {
+        document.getElementById("result").innerHTML = "<b> Positive integers required, ending number should be larger than or equal to the starting number. <b>";
+      };
+
+
+
+      /*
       var big_sum = consum(end_value);
-      var small_sum = consum(start_value);
-      var result = big_sum - small_sum + start_value;
+      var small_sum = consum(start_value - 1);
+      var result = big_sum - small_sum;
       //alert("Result: "+result)
       document.getElementById("result").innerHTML = result;
+
+      var checkstart = start_value % 1;
+      var checkend = end_value % 1;
+
+      if (checkstart = 0 && checkend = 0) {
+      } else {
+          document.getElementById("result").innerHTML = "NOT VALID";
+      };
+      */
+
+
   }
 
 

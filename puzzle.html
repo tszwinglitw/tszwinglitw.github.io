@@ -1,0 +1,224 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN">
+<html>
+<head>
+  <title>Home</title>
+  <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script> -->
+  <style>
+
+  body {
+    text-align: center;
+  }
+
+  table, th, td {
+    border: 1px solid black;
+    border-collapse: collapse;
+    text-align: center;
+    vertical-align: middle;
+  }
+
+  th, td {
+    padding: 15px;
+    width: 30px;
+    height: 30px;
+  }
+
+  </style>
+</head>
+
+<body>
+
+
+Fill in grids so that each column, row and diagonal add up to the given sum.
+<br>
+The sum is <b>65</b>.
+<br><br>
+
+
+<table>
+    <tr>
+      <td>9</td> <td><input class="inputbox" id="a2" type="text"></td> <td>25</td> <td>18</td> <td><input class="inputbox" id="a5" type="text"></td>
+    </tr>
+
+    <tr>
+      <td>3</td> <td><input class="inputbox" id="b2" type="text"></td> <td><input class="inputbox" id="b3" type="text"></td> <td><input class="inputbox" id="b4" type="text"></td> <td><input class="inputbox" id="b5" type="text"></td>
+    </tr>
+
+    <tr>
+      <td>22</td> <td>20</td> <td>13</td> <td><input class="inputbox" id="c4" type="text"></td> <td><input class="inputbox" id="c5" type="text"></td>
+    </tr>
+
+    <tr>
+      <td>16</td> <td>14</td> <td>7</td> <td>5</td> <td><input class="inputbox" id="d5" type="text"></td>
+    </tr>
+
+    <tr>
+      <td><input class="inputbox" id="e1" type="text"></td> <td>8</td> <td>1</td> <td>24</td> <td><input class="inputbox" id="e5" type="text"></td>
+    </tr>
+
+</table>
+<br>
+<button type="button" id="submit">Submit!</button><br>
+Result: <span id="result"></meta>
+</body>
+
+
+<script>
+
+
+
+
+  document.getElementById("submit").onclick = function() {
+
+
+    var target = 11;
+    var sum = 0;
+
+    var a2 = 2;
+    var a5 = 11;
+    var b2 = 21;
+    var b3 = 19;
+    var b4 = 12;
+    var b5 = 10;
+    var c4 = 6;
+    var c5 = 4;
+    var d5 = 23;
+    var e1 = 15;
+    var e5 = 17;
+
+    var a2_ans = parseInt(document.getElementById("a2").value);
+    var a5_ans = parseInt(document.getElementById("a5").value);
+    var b2_ans = parseInt(document.getElementById("b2").value);
+    var b3_ans = parseInt(document.getElementById("b3").value);
+    var b4_ans = parseInt(document.getElementById("b4").value);
+    var b5_ans = parseInt(document.getElementById("b5").value);
+    var c4_ans = parseInt(document.getElementById("c4").value);
+    var c5_ans = parseInt(document.getElementById("c5").value);
+    var d5_ans = parseInt(document.getElementById("d5").value);
+    var e1_ans = parseInt(document.getElementById("e1").value);
+    var e5_ans = parseInt(document.getElementById("e5").value);
+
+    if (a2 == a2_ans) {sum = sum+1;};
+    if (a5 == a5_ans) {sum = sum+1;};
+    if (b2 == b2_ans) {sum = sum+1;};
+    if (b3 == b3_ans) {sum = sum+1;};
+    if (b4 == b4_ans) {sum = sum+1;};
+    if (b5 == b5_ans) {sum = sum+1;};
+    if (c4 == c4_ans) {sum = sum+1;};
+    if (c5 == c5_ans) {sum = sum+1;};
+    if (d5 == d5_ans) {sum = sum+1;};
+    if (e1 == e1_ans) {sum = sum+1;};
+    if (e5 == e5_ans) {sum = sum+1;};
+
+    console.log(sum);
+
+    if (sum == target) {
+      document.getElementById("result").innerHTML = "<b>You got it!</b>";
+    } else {
+      document.getElementById("result").innerHTML = "<b>" + (target-sum) + " to go </b>";
+    };
+
+  };
+//THIS IS HOW YOU DO NOT NEED TO WRITE THE ONCLICK INLINE
+
+
+/*
+
+  function consum(value) {
+      var n = value;
+      //var c = parseInt(a) + parseInt(b);
+      var n = parseInt(n)*(parseInt(n)+1)/2;
+      //alert("n in Function: " + n);
+      value = n;
+      //alert("end_value in Function: " + end_value);
+      return n;
+  }
+
+
+  // Execute a function when the user releases a key on the keyboard
+  document.getElementById("input_end").addEventListener("keyup", function(event) {
+    event.preventDefault();
+    if (event.keyCode === 13) {
+      document.getElementById("try").click();
+    }
+  });
+
+  document.getElementById("input_start").addEventListener("keyup", function(event) {
+    // Cancel the default action, if needed
+    event.preventDefault();
+    // Number 13 is the "Enter" key on the keyboard
+    if (event.keyCode === 13) {
+      // Trigger the button element with a click
+      document.getElementById("try").click();
+    }
+  });
+
+  document.getElementById("try").onclick = function() {
+      var start_value = parseFloat(document.getElementById("input_start").value);
+      var end_value = parseFloat(document.getElementById("input_end").value);
+
+      var checkstart = start_value % 1;
+      console.log(checkstart);
+      var checkend = end_value % 1;
+      console.log(checkend);
+
+      if (checkstart == 0 && checkend == 0 && start_value > 0 && end_value > 0 && end_value >= start_value) {
+        var big_sum = consum(end_value);
+        var small_sum = consum(start_value - 1);
+        var result = big_sum - small_sum;
+        //alert("Result: "+result)
+        document.getElementById("result").innerHTML = result;
+      } else {
+        document.getElementById("result").innerHTML = "<b> Positive integers required, ending number should be larger than or equal to the starting number. <b>";
+      };
+
+
+
+
+      var big_sum = consum(end_value);
+      var small_sum = consum(start_value - 1);
+      var result = big_sum - small_sum;
+      //alert("Result: "+result)
+      document.getElementById("result").innerHTML = result;
+
+      var checkstart = start_value % 1;
+      var checkend = end_value % 1;
+
+      if (checkstart = 0 && checkend = 0) {
+      } else {
+          document.getElementById("result").innerHTML = "NOT VALID";
+      };
+      */
+
+
+
+
+
+
+/*
+Number is even number
+Result =
+
+say i input 23 to 83
+
+then i have to calc 1-83 first -> bigger
+then i have to calc 1-23 -> smaller
+
+result = bigger - smaller
+
+i have to write a module with (a, b)
+
+y= consum
+z = consum
+x = y-z
+
+The formula n(n+1)/2
+
+Then
+*/
+
+  </script>
+
+
+
+
+</html>
