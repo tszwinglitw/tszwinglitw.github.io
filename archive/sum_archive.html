@@ -1,0 +1,134 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN">
+<html>
+<head>
+  <title>Sum</title>
+  <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script> -->
+
+</head>
+
+<body>
+
+  First Number:
+  <input class="inputbox" id="input_start" type="text">
+  <br>
+
+  Last Number:
+  <input class="inputbox" id="input_end" type="text">
+  <br><br>
+
+  Result: <span id="result"> </span>
+  <br><br>
+
+
+  <button type="button" id="try">TRY!</button><br>
+  <br><br>
+
+
+
+
+
+
+  <script>
+
+
+//THIS IS HOW YOU DO NOT NEED TO WRITE THE ONCLICK INLINE
+
+  function consum(value) {
+      var n = value;
+      //var c = parseInt(a) + parseInt(b);
+      var n = parseInt(n)*(parseInt(n)+1)/2;
+      //alert("n in Function: " + n);
+      value = n;
+      //alert("end_value in Function: " + end_value);
+      return n;
+  }
+
+
+  // Execute a function when the user releases a key on the keyboard
+  document.getElementById("input_end").addEventListener("keyup", function(event) {
+    event.preventDefault();
+    if (event.keyCode === 13) {
+      document.getElementById("try").click();
+    }
+  });
+
+  document.getElementById("input_start").addEventListener("keyup", function(event) {
+    // Cancel the default action, if needed
+    event.preventDefault();
+    // Number 13 is the "Enter" key on the keyboard
+    if (event.keyCode === 13) {
+      // Trigger the button element with a click
+      document.getElementById("try").click();
+    }
+  });
+
+  document.getElementById("try").onclick = function() {
+      var start_value = parseFloat(document.getElementById("input_start").value);
+      var end_value = parseFloat(document.getElementById("input_end").value);
+
+      var checkstart = start_value % 1;
+      console.log(checkstart);
+      var checkend = end_value % 1;
+      console.log(checkend);
+
+      if (checkstart == 0 && checkend == 0 && start_value > 0 && end_value > 0 && end_value >= start_value) {
+        var big_sum = consum(end_value);
+        var small_sum = consum(start_value - 1);
+        var result = big_sum - small_sum;
+        //alert("Result: "+result)
+        document.getElementById("result").innerHTML = result;
+      } else {
+        document.getElementById("result").innerHTML = "<b> Positive integers required, the last number should be larger than or equal to the first number. <b>";
+      };
+
+
+
+      /*
+      var big_sum = consum(end_value);
+      var small_sum = consum(start_value - 1);
+      var result = big_sum - small_sum;
+      //alert("Result: "+result)
+      document.getElementById("result").innerHTML = result;
+
+      var checkstart = start_value % 1;
+      var checkend = end_value % 1;
+
+      if (checkstart = 0 && checkend = 0) {
+      } else {
+          document.getElementById("result").innerHTML = "NOT VALID";
+      };
+      */
+
+
+  }
+
+
+
+/*
+Number is even number
+Result =
+
+say i input 23 to 83
+
+then i have to calc 1-83 first -> bigger
+then i have to calc 1-23 -> smaller
+
+result = bigger - smaller
+
+i have to write a module with (a, b)
+
+y= consum
+z = consum
+x = y-z
+
+The formula n(n+1)/2
+
+Then
+*/
+
+  </script>
+
+
+
+</body>
+</html>
