@@ -12,11 +12,7 @@
 
 
   <style>
-  .card {
-    padding-left: 2em;
-    padding-right: 2em;
-    padding-top: 2em;
-  }
+
 
   .inputbox {
     width: 50%;
@@ -33,8 +29,10 @@
 <body>
 
 
+
+
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-    <a class="navbar-brand" href="#">Sum</a>
+    <a class="navbar-brand" href="#">Assignments</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -42,60 +40,60 @@
 
       <ul class="navbar-nav">
         <li class="nav-item active">
-          <a class="nav-link" href="#">First <span class="sr-only">(current)</span></a>
+          <a class="nav-link" href="#">Sum <span class="sr-only">(current)</span></a>
         </li>
 
-        <!--
+
         <li class="nav-item">
-        <a class="nav-link" href="#">Second</a>
-      </li>
-      <li class="nav-item">
-      <a class="nav-link" href="#">Third</a>
-    </li>
-  -->
+          <a class="nav-link" href="puzzle.html">Puzzle</a>
+        </li>
 
 
-</ul>
+      </ul>
 
-</div>
-</nav>
+    </div>
+  </nav>
 
 
 
-<div class="card">
-  <div class="card-body">
+  <div class="container">
+    <div class="row">
 
 
 
-    <h1>Sum of Consecutive Integers</h1>
-    <br>
-    <form>
-      First Number:
-      <input class="inputbox form-control" placeholder="First Number" id="input_start" type="text">
-      <br>
+      <div class="col">
+        <br>
+        <h1>Sum of Consecutive Integers</h1>
+        <br>
+        <form>
+          First Number:
+          <input class="inputbox form-control" placeholder="First Number" id="input_start" type="text">
+          <br>
 
-      Last Number:
-      <input class="inputbox form-control" placeholder="Last Number" id="input_end" type="text">
-      <br><br>
+          Last Number:
+          <input class="inputbox form-control" placeholder="Last Number" id="input_end" type="text">
+          <br><br>
 
-      <div class="alert alert-success" role="alert">
-        Result: <span id="result"> </span>
+          <div class="alert alert-success" role="alert">
+            Result: <span id="result"> </span>
+          </div>
+          <br><br>
+
+
+          <button type="button" id="try" class="btn btn-primary btn-sm">TRY!</button><br>
+          <br><br>
+        </form>
       </div>
-      <br><br>
 
 
-      <button type="button" id="try" class="btn btn-primary btn-sm">TRY!</button><br>
-      <br><br>
 
 
     </div>
   </div>
 
-</form>
 
 
 
-
-<script src="sum.js"></script>
+  <script src="sum.js"></script>
 </body>
 </html>

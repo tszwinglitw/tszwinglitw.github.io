@@ -34,47 +34,90 @@
 </head>
 
 <body>
-<h1>Math Puzzle</h1>
 
 
-Fill in grids so that each column, row and diagonal add up to the given sum.
-<br>
-The sum is <b>65</b>.
-<br><br>
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <a class="navbar-brand" href="#">Assignments</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link" href="sum.html">Sum <span class="sr-only">(current)</span></a>
+        </li>
 
 
-<table align="center">
-    <tr>
-      <td>9</td> <td><input class="inputbox form-control" id="a2" type="text"></td> <td>25</td> <td>18</td> <td><input class="inputbox form-control" id="a5" type="text"></td>
-    </tr>
-
-    <tr>
-      <td>3</td> <td><input class="inputbox form-control" id="b2" type="text"></td> <td><input class="inputbox form-control" id="b3" type="text"></td> <td><input class="inputbox form-control" id="b4" type="text"></td> <td><input class="inputbox form-control" id="b5" type="text"></td>
-    </tr>
-
-    <tr>
-      <td>22</td> <td>20</td> <td>13</td> <td><input class="inputbox form-control" id="c4" type="text"></td> <td><input class="inputbox form-control" id="c5" type="text"></td>
-    </tr>
-
-    <tr>
-      <td>16</td> <td>14</td> <td>7</td> <td>5</td> <td><input class="inputbox form-control" id="d5" type="text"></td>
-    </tr>
-
-    <tr>
-      <td><input class="inputbox form-control" id="e1" type="text"></td> <td>8</td> <td>1</td> <td>24</td> <td><input class="inputbox form-control" id="e5" type="text"></td>
-    </tr>
-
-</table>
-<br>
-
-<button type="button" class="btn btn-primary" id="submit">Submit!</button><br>
-Result: <span id="result"></meta>
-</body>
+        <li class="nav-item active">
+          <a class="nav-link" href="puzzle.html">Puzzle</a>
+        </li>
 
 
-<script>
+      </ul>
+
+    </div>
+  </nav>
+
+  <div class="container">
+    <div class="row">
+
+      
+      <div class="col">
+
+      <h1>Math Puzzle</h1>
 
 
+      Fill in grids so that each column, row and diagonal add up to the given sum.
+      <br>
+      The sum is <b>65</b>.
+      <br><br>
+
+
+      <table align="center">
+        <tr>
+          <td>9</td> <td><input class="inputbox form-control" id="a2" type="text"></td> <td>25</td> <td>18</td> <td><input class="inputbox form-control" id="a5" type="text"></td>
+        </tr>
+
+        <tr>
+          <td>3</td> <td><input class="inputbox form-control" id="b2" type="text"></td> <td><input class="inputbox form-control" id="b3" type="text"></td> <td><input class="inputbox form-control" id="b4" type="text"></td> <td><input class="inputbox form-control" id="b5" type="text"></td>
+        </tr>
+
+        <tr>
+          <td>22</td> <td>20</td> <td>13</td> <td><input class="inputbox form-control" id="c4" type="text"></td> <td><input class="inputbox form-control" id="c5" type="text"></td>
+        </tr>
+
+        <tr>
+          <td>16</td> <td>14</td> <td>7</td> <td>5</td> <td><input class="inputbox form-control" id="d5" type="text"></td>
+        </tr>
+
+        <tr>
+          <td><input class="inputbox form-control" id="e1" type="text"></td> <td>8</td> <td>1</td> <td>24</td> <td><input class="inputbox form-control" id="e5" type="text"></td>
+        </tr>
+
+      </table>
+      <br>
+
+      <button type="button" class="btn btn-primary" id="submit">Submit!</button><br>
+      Result: <span id="result"></meta>
+
+      </div>
+
+
+      </div>
+    </div>
+
+
+
+
+
+  </body>
+
+
+
+
+
+  <script>
 
 
   document.getElementById("submit").onclick = function() {
@@ -128,76 +171,76 @@ Result: <span id="result"></meta>
     };
 
   };
-//THIS IS HOW YOU DO NOT NEED TO WRITE THE ONCLICK INLINE
+  //THIS IS HOW YOU DO NOT NEED TO WRITE THE ONCLICK INLINE
 
 
-/*
+  /*
 
   function consum(value) {
-      var n = value;
-      //var c = parseInt(a) + parseInt(b);
-      var n = parseInt(n)*(parseInt(n)+1)/2;
-      //alert("n in Function: " + n);
-      value = n;
-      //alert("end_value in Function: " + end_value);
-      return n;
-  }
+  var n = value;
+  //var c = parseInt(a) + parseInt(b);
+  var n = parseInt(n)*(parseInt(n)+1)/2;
+  //alert("n in Function: " + n);
+  value = n;
+  //alert("end_value in Function: " + end_value);
+  return n;
+}
 
 
-  // Execute a function when the user releases a key on the keyboard
-  document.getElementById("input_end").addEventListener("keyup", function(event) {
-    event.preventDefault();
-    if (event.keyCode === 13) {
-      document.getElementById("try").click();
-    }
-  });
+// Execute a function when the user releases a key on the keyboard
+document.getElementById("input_end").addEventListener("keyup", function(event) {
+event.preventDefault();
+if (event.keyCode === 13) {
+document.getElementById("try").click();
+}
+});
 
-  document.getElementById("input_start").addEventListener("keyup", function(event) {
-    // Cancel the default action, if needed
-    event.preventDefault();
-    // Number 13 is the "Enter" key on the keyboard
-    if (event.keyCode === 13) {
-      // Trigger the button element with a click
-      document.getElementById("try").click();
-    }
-  });
+document.getElementById("input_start").addEventListener("keyup", function(event) {
+// Cancel the default action, if needed
+event.preventDefault();
+// Number 13 is the "Enter" key on the keyboard
+if (event.keyCode === 13) {
+// Trigger the button element with a click
+document.getElementById("try").click();
+}
+});
 
-  document.getElementById("try").onclick = function() {
-      var start_value = parseFloat(document.getElementById("input_start").value);
-      var end_value = parseFloat(document.getElementById("input_end").value);
+document.getElementById("try").onclick = function() {
+var start_value = parseFloat(document.getElementById("input_start").value);
+var end_value = parseFloat(document.getElementById("input_end").value);
 
-      var checkstart = start_value % 1;
-      console.log(checkstart);
-      var checkend = end_value % 1;
-      console.log(checkend);
+var checkstart = start_value % 1;
+console.log(checkstart);
+var checkend = end_value % 1;
+console.log(checkend);
 
-      if (checkstart == 0 && checkend == 0 && start_value > 0 && end_value > 0 && end_value >= start_value) {
-        var big_sum = consum(end_value);
-        var small_sum = consum(start_value - 1);
-        var result = big_sum - small_sum;
-        //alert("Result: "+result)
-        document.getElementById("result").innerHTML = result;
-      } else {
-        document.getElementById("result").innerHTML = "<b> Positive integers required, ending number should be larger than or equal to the starting number. <b>";
-      };
-
-
+if (checkstart == 0 && checkend == 0 && start_value > 0 && end_value > 0 && end_value >= start_value) {
+var big_sum = consum(end_value);
+var small_sum = consum(start_value - 1);
+var result = big_sum - small_sum;
+//alert("Result: "+result)
+document.getElementById("result").innerHTML = result;
+} else {
+document.getElementById("result").innerHTML = "<b> Positive integers required, ending number should be larger than or equal to the starting number. <b>";
+};
 
 
-      var big_sum = consum(end_value);
-      var small_sum = consum(start_value - 1);
-      var result = big_sum - small_sum;
-      //alert("Result: "+result)
-      document.getElementById("result").innerHTML = result;
 
-      var checkstart = start_value % 1;
-      var checkend = end_value % 1;
 
-      if (checkstart = 0 && checkend = 0) {
-      } else {
-          document.getElementById("result").innerHTML = "NOT VALID";
-      };
-      */
+var big_sum = consum(end_value);
+var small_sum = consum(start_value - 1);
+var result = big_sum - small_sum;
+//alert("Result: "+result)
+document.getElementById("result").innerHTML = result;
+
+var checkstart = start_value % 1;
+var checkend = end_value % 1;
+
+if (checkstart = 0 && checkend = 0) {
+} else {
+document.getElementById("result").innerHTML = "NOT VALID";
+};
+*/
 
 
 
@@ -226,7 +269,7 @@ The formula n(n+1)/2
 Then
 */
 
-  </script>
+</script>
 
 
 
